@@ -7,10 +7,12 @@ import javax.persistence.*;
 public class Geometry
 {
     @ManyToOne(cascade = CascadeType.ALL)
+    @Column(name = "geometry_project_id")
     private Project project;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "geometry_id")
     private Integer geometryId;
 
     @Column(name = "geometry_name")

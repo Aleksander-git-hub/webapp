@@ -7,13 +7,16 @@ import javax.persistence.*;
 public class Attribute
 {
     @ManyToOne(cascade = CascadeType.ALL)
+    @Column(name = "attribute_project_id")
     private Project project;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @Column(name = "attribute_geometry_id")
     private Geometry geometry;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "attribute_id")
     private Integer attributeId;
 
     @Column(name = "attribute_name")

@@ -9,6 +9,7 @@ public class Project
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "project_id")
     private Integer projectId;
 
     @Column(name = "project_name")

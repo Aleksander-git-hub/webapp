@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
-<hibernate-configuration>
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
     <session-factory>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/project_db</property>
+        <property name="connection.url">jdbc:postgresql://127.0.0.1:5432/project_db</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="connection.username">postgres</property>
         <property name="connection.password">postgres</property>
@@ -12,8 +9,8 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
 
-        <mapping class="com.opencascade.webapp.entity.Attribute" />
-        <mapping class="com.opencascade.webapp.entity.Geometry" />
-        <mapping class="com.opencascade.webapp.entity.Project" />
+        <mapping class="com.opencascade.webapp.entity.Project"></mapping>
+        <mapping class="com.opencascade.webapp.entity.Geometry"></mapping>
+        <mapping class="com.opencascade.webapp.entity.Attribute"></mapping>
     </session-factory>
 </hibernate-configuration>

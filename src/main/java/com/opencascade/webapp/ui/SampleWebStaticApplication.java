@@ -16,51 +16,7 @@
 
 package com.opencascade.webapp.ui;
 
-import com.opencascade.webapp.dao.HibernateUtil;
-import com.opencascade.webapp.entity.Attribute;
-import com.opencascade.webapp.entity.Geometry;
-import com.opencascade.webapp.entity.Project;
-import org.hibernate.Session;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class SampleWebStaticApplication
-{
-    public static void main(String[] args) {
-        try (Session session = HibernateUtil.getSession()) {
-            session.beginTransaction();
-
-            Project project = new Project();
-            project.setProjectName("project1");
-
-            List<Geometry> geometryList = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                Geometry geometry = new Geometry();
-                geometry.setGeometryName("Geom" + i);
-                geometry.setProject(project);
-                geometryList.add(geometry);
-            }
-
-            List<Attribute> attributeList = new ArrayList<>();
-            for (int i = 0; i < 10; i++) {
-                Attribute attribute = new Attribute();
-                attribute.setAttributeName("Attr" + i);
-                attribute.setProject(project);
-                attribute.setGeometry(geometryList.get(1));
-                attributeList.add(attribute);
-            }
-
-            session.save(project);
-            session.save(geometryList);
-            session.save(attributeList);
-
-            session.getTransaction().commit();
-        }
-    }
-}
-
-/*import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
@@ -79,4 +35,4 @@ public class SampleWebStaticApplication extends SpringBootServletInitializer {
 		return application.sources(SampleWebStaticApplication.class);
 	}
 
-}*/
+}
